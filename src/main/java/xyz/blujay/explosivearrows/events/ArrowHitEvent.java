@@ -22,6 +22,7 @@ public class ArrowHitEvent implements Listener {
 
                 var tnt = (TNTPrimed) arrow.getWorld().spawnEntity(arrow.getLocation(), EntityType.PRIMED_TNT);
                 tnt.setFuseTicks(api.fuseLength);
+                tnt.setYield(api.explosionPower);
                 tnt.setSource(p);
                 arrow.remove();
             }
