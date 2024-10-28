@@ -19,11 +19,7 @@ public class ArrowHitEvent implements Listener {
             if(data != null && data == CustomItems.EXPLOSIVEARROW.ordinal()){
                 var plugin = ExplosiveArrows.getInstance();
                 var api = plugin.getAPI();
-
-                var tnt = (TNTPrimed) arrow.getWorld().spawnEntity(arrow.getLocation(), EntityType.PRIMED_TNT);
-                tnt.setFuseTicks(api.fuseLength);
-                tnt.setYield(api.explosionPower);
-                tnt.setSource(p);
+                arrow.getWorld().createExplosion(arrow.getLocation(), api.explosionPower, api.setFires, true, p);
                 arrow.remove();
             }
         }
