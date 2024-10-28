@@ -8,7 +8,7 @@ import xyz.blujay.explosivearrows.items.CustomItems;
 import xyz.blujay.explosivearrows.utilities.ChatUtility;
 
 public class ExplosiveArrowsAPI {
-    public int fuseLength;
+    public boolean setfires;
     public int explosionPower;
     public String prefix;
     public String usePermissionMissing;
@@ -19,7 +19,7 @@ public class ExplosiveArrowsAPI {
     }
 
     public void setConfigOptions(FileConfiguration config){
-        this.fuseLength = config.getInt("fuseLength");
+        this.setfires = config.getBoolean("setfires");
         this.explosionPower = config.getInt("explosionPower");
         this.prefix = ChatUtility.colorize(config.getString("prefix"));
         this.usePermissionMissing = ChatUtility.colorize(config.getString("usePermissionMissing"));
