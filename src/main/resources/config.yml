@@ -1,7 +1,7 @@
-# How long should the TNT take to detonate in ticks? (80 ticks is normal tnt)
-fuseLength: 20
+# Should an arrow's explosion start fires?
+setFires: false
 
-# How big should the TNT explosion power be? (4 for normal tnt)
+# How big should the explosion power of an arrow be? (4 is normal tnt)
 explosionPower: 3
 
 # // MESSAGES \\
