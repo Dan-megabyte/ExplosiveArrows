@@ -15,7 +15,7 @@ public class ArrowHitEvent implements Listener {
         if(e.getEntity() instanceof Arrow arrow && arrow.getShooter() instanceof Player p){
 
             NamespacedKey key = new NamespacedKey(ExplosiveArrows.getInstance(), "ExplosiveArrows");
-            int data = arrow.getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
+            var data = arrow.getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
             if(data != null && data == CustomItems.EXPLOSIVEARROW.ordinal()){
                 var plugin = ExplosiveArrows.getInstance();
                 var api = plugin.getAPI();
