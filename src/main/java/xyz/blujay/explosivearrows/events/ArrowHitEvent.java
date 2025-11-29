@@ -14,16 +14,12 @@ public class ArrowHitEvent implements Listener {
     public void onArrowHit(org.bukkit.event.entity.ProjectileHitEvent e){
         if(e.getEntity() instanceof Arrow arrow && arrow.getShooter() instanceof Player p){
 
-            var key = new NamespacedKey(ExplosiveArrows.getInstance(), "ExplosiveArrows");
+            NamespacedKey key = new NamespacedKey(ExplosiveArrows.getInstance(), "ExplosiveArrows");
             var data = arrow.getPersistentDataContainer().get(key, PersistentDataType.INTEGER);
             if(data != null && data == CustomItems.EXPLOSIVEARROW.ordinal()){
                 var plugin = ExplosiveArrows.getInstance();
                 var api = plugin.getAPI();
-
-                var tnt = (TNTPrimed) arrow.getWorld().spawnEntity(arrow.getLocation(), EntityType.PRIMED_TNT);
-                tnt.setFuseTicks(api.fuseLength);
-                tnt.setYield(api.explosionPower);
-                tnt.setSource(p);
+                arrow.getWorld().createExplosion(arrow.getLocation(), api.explosionPower, api.setFires, true, p);
                 arrow.remove();
             }
         }
